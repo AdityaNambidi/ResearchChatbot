@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content">
+            <h2>Admin Login</h2>
+            <input type="text" id="adminUsername" placeholder="Username" value="admin">
+            <input type="password" id="adminPassword" placeholder="Password" value="admin">
+            <button onclick="adminLogin()">Login</button>
+            <div id="adminLoginError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" style="display: none;">
+        <div class="header">
+            <h1>Admin Dashboard</h1>
+            <div class="header-actions">
+                <span id="adminUsernameDisplay"></span>
+                <button onclick="adminLogout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Users List -->
+            <div id="usersView" class="view active">
+                <h2>All Users</h2>
+                <div id="usersList" class="users-list"></div>
+            </div>
+
+            <!-- User Detail View -->
+            <div id="userDetailView" class="view">
+                <div class="user-detail-header">
+                    <button onclick="showUsersList()" class="back-btn">← Back to Users</button>
+                    <h2 id="userDetailName">User Details</h2>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab active" onclick="switchUserTab('pdfs')">PDFs</button>
+                    <button class="tab" onclick="switchUserTab('chats')">Chats</button>
+                </div>
+
+                <div id="pdfsTab" class="tab-content active">
+                    <h3>Uploaded PDFs</h3>
+                    <div id="userPdfsList" class="content-list"></div>
+                </div>
+
+                <div id="chatsTab" class="tab-content">
+                    <h3>Chat History</h3>
+                    <div id="userChatsList" class="content-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>
+

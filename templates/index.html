@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <div id="loginForm" class="auth-form">
+                <h2>Login</h2>
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+                <div id="loginError" class="error-message"></div>
+            </div>
+            
+            <div id="signupForm" class="auth-form" style="display: none;">
+                <h2>Sign Up</h2>
+                <input type="text" id="signupUsername" placeholder="Username" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required>
+                <button onclick="signup()">Sign Up</button>
+                <div id="signupError" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" style="display: none;">
+        <div class="header">
+            <h1>Research Chatbot</h1>
+            <div class="user-info">
+                <span id="usernameDisplay"></span>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('pdf')">PDF RAG</button>
+            <button class="tab" onclick="switchTab('websearch')">Web Search</button>
+        </div>
+        
+        <!-- PDF RAG Tab -->
+        <div id="pdfTab" class="tab-content active">
+            <div class="upload-section">
+                <h2>Upload PDF</h2>
+                <input type="file" id="pdfInput" accept=".pdf">
+                <button onclick="uploadPDF()">Upload PDF</button>
+                <div id="uploadStatus"></div>
+            </div>
+            
+            <div class="chat-section">
+                <h2>Chat</h2>
+                <div id="pdfChatMessages" class="chat-messages"></div>
+                <div class="input-area">
+                    <input type="text" id="pdfUserInput" placeholder="Ask a question about the PDF..." onkeypress="handleKeyPress(event, 'pdf')">
+                    <button onclick="sendPDFMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Web Search Tab -->
+        <div id="websearchTab" class="tab-content">
+            <div class="chat-section">
+                <h2>Web Search Chat</h2>
+                <div id="webChatMessages" class="chat-messages"></div>
+                <div class="input-area">
+                    <input type="text" id="webUserInput" placeholder="Ask a question to search the web..." onkeypress="handleKeyPress(event, 'web')">
+                    <button onclick="sendWebMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
