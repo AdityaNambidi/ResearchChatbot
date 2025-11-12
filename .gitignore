@@ -22,3 +22,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
+.specstory/
+
+.cursorindexingignore

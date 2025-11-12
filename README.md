@@ -104,9 +104,41 @@ http://localhost:5000
 - **PDF Processing**: PyPDF2
 - **Vector Similarity**: scikit-learn
 
+## Deployment on Vercel
+
+1. **Install Vercel CLI** (if not already installed):
+```bash
+npm i -g vercel
+```
+
+2. **Login to Vercel**:
+```bash
+vercel login
+```
+
+3. **Set Environment Variables** in Vercel Dashboard or via CLI:
+```bash
+vercel env add FLASK_SECRET_KEY
+vercel env add OPENAI_API_KEY
+vercel env add MONGODB_URI
+```
+
+4. **Deploy**:
+```bash
+vercel
+```
+
+Or deploy to production:
+```bash
+vercel --prod
+```
+
+**Note**: Make sure to set all three environment variables (`FLASK_SECRET_KEY`, `OPENAI_API_KEY`, `MONGODB_URI`) in your Vercel project settings before deploying.
+
 ## Notes
 
 - The application stores PDF embeddings in memory (per user, resets when server restarts)
 - Designed for single-user use per session
 - Uses OpenAI's `text-embedding-3-small` for embeddings and `gpt-3.5-turbo` for chat
 - Web search uses DuckDuckGo which is free and doesn't require an API key
+- For Vercel deployment, ensure all environment variables are set in the Vercel dashboard

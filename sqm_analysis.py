@@ -611,8 +611,8 @@ class SQMAnalyzer:
         print("="*60)
         
         metrics_data = [
-            ['h1 (Distinct Operators)', f"{total_h1:.2f}"],
-            ['h2 (Distinct Operands)', f"{total_h2:.2f}"],
+            ['n1 (Distinct Operators)', f"{total_h1:.2f}"],
+            ['n2 (Distinct Operands)', f"{total_h2:.2f}"],
             ['N1 (Total Operators)', f"{total_N1:.2f}"],
             ['N2 (Total Operands)', f"{total_N2:.2f}"],
             ['Vocabulary (h1 + h2)', f"{total_vocab:.2f}"],
