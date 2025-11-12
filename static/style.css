@@ -206,12 +206,25 @@ body {
     display: flex;
 }
 
+/* PDF Layout - Side by side */
+.pdf-layout {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+}
+
 .upload-section {
     background: #252525;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
     border: 1px solid #333;
+    width: 300px;
+    flex-shrink: 0;
+    height: fit-content;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 .upload-section h2 {
@@ -239,6 +252,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s;
+    width: 100%;
 }
 
 .upload-section button:hover {
@@ -250,6 +264,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     display: none;
+    font-size: 0.9em;
 }
 
 #uploadStatus.success {
@@ -271,6 +286,7 @@ body {
     flex-direction: column;
     flex: 1;
     min-height: 0;
+    width: 100%;
 }
 
 .chat-section h2 {

@@ -51,19 +51,21 @@
         
         <!-- PDF RAG Tab -->
         <div id="pdfTab" class="tab-content active">
-            <div class="upload-section">
-                <h2>Upload PDF</h2>
-                <input type="file" id="pdfInput" accept=".pdf">
-                <button onclick="uploadPDF()">Upload PDF</button>
-                <div id="uploadStatus"></div>
-            </div>
-            
-            <div class="chat-section">
-                <h2>Chat</h2>
-                <div id="pdfChatMessages" class="chat-messages"></div>
-                <div class="input-area">
-                    <input type="text" id="pdfUserInput" placeholder="Ask a question about the PDF..." onkeypress="handleKeyPress(event, 'pdf')">
-                    <button onclick="sendPDFMessage()">Send</button>
+            <div class="pdf-layout">
+                <div class="upload-section">
+                    <h2>Upload PDF</h2>
+                    <input type="file" id="pdfInput" accept=".pdf">
+                    <button onclick="uploadPDF()">Upload PDF</button>
+                    <div id="uploadStatus"></div>
+                </div>
+                
+                <div class="chat-section">
+                    <h2>Chat</h2>
+                    <div id="pdfChatMessages" class="chat-messages"></div>
+                    <div class="input-area">
+                        <input type="text" id="pdfUserInput" placeholder="Ask a question about the PDF..." onkeypress="handleKeyPress(event, 'pdf')">
+                        <button onclick="sendPDFMessage()">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
