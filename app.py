@@ -22,7 +22,14 @@ import uuid
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+# Get the directory where this file is located
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+app = Flask(
+    __name__,
+    template_folder=os.path.join(base_dir, 'templates'),
+    static_folder=os.path.join(base_dir, 'static')
+)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback-secret-key-change-in-production')
 CORS(app, supports_credentials=True)
 
